@@ -44,7 +44,6 @@
  * 
  */
 // @lc code=start
-
 class Solution {
   public int maxSubArray(int[] nums) {
     // Kadane algorithm
