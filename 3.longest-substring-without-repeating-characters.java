@@ -5,7 +5,10 @@
  */
 
 // @lc code=start
-class Solution {
+
+import java.util.HashMap;
+
+class LengthOfLongestSubstring {
   public static int lengthOfLongestSubstring(String s) {
     int start = 0;
     int end = 0;
@@ -32,7 +35,5 @@ class Solution {
     }
     return maxLength;
   }
-
 }
 // @lc code=end
-
