@@ -50,7 +50,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Solution {
+class ThreeSum {
   public List<List<Integer>> threeSum(int[] nums) {
     Arrays.sort(nums);
     System.out.println(Arrays.toString(nums));

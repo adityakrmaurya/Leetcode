@@ -1,5 +1,3 @@
-package twoPointers;
-
 class RemoveDuplicates {
   public int removeDuplicates(int[] nums) {
     int start = 0;

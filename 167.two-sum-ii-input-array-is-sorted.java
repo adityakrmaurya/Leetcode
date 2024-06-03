@@ -1,5 +1,3 @@
-package twoPointers;
-
 class TwoSum2 {
   public int[] twoSum(int[] numbers, int target) {
     int[] pair = new int[2];
