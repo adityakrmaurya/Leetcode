@@ -11,35 +11,44 @@ import java.util.List;
  * }
  */
 
-class Solution {
-  public boolean isPalindrome(ListNode head) {
-    // Using 2ptr : Slow & Fast
-    // Slow: jumps one step
-    // Fast: jumps two steps
-    // store next of slow
-    // then reverse
-    ListNode slow = head;
-    ListNode fast = head;
+class IsPalindrome {
+  public ListNode reverseLinkedList(ListNode start) {
     ListNode prev = null;
-    ListNode slowNext = head.next;
-    // Base Case
-    // One Element or Two Element
-    if (slowNext == null || (slowNext != null && fast.next.next == null && slowNext.val == slow.val)) {
-      return true;
-    } else if (slowNext != null && fast.next.next == null && slowNext.val != slow.val) {
-      return false;
+    ListNode next;
+    while (start != null) {
+        next = start.next;
+        start.next = prev;
+        prev = start;
+        start = next;
     }
-    // 3 or more elements
-    while (fast.next.next != null) {
-      slowNext = slow.next;
-      slow.next = prev;
-      prev = slow;
-      slow = slowNext;
+    return prev;
+  }
+  public ListNode middleLinkedList(ListNode start) {
+    ListNode slow = start;
+    ListNode fast = start;
+    // fast.next is null in case of odd length linked list
+    // fast.next.next is null in case of even length linked list
+    while (fast.next != null && fast.next.next != null) {
       fast = fast.next.next;
+      slow = slow.next;
     }
-
-
+    // Odd case
+    if (fast.next == null) {
+      return slow;
+    }
+    // even case
+    return slow.next;
+  }
+  public boolean isPalindrome(ListNode head) {
+    ListNode middle = middleLinkedList(head);
+    ListNode right = reverseLinkedList(middle);
+    while (head != middle) {
+      if (head.val != right.val) {
+        return false;
+      }
+      head = head.next;
+      right = right.next;
+    }
+    return true;
   }
 }
-
-1 2 3 4 5
