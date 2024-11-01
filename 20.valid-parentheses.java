@@ -49,7 +49,7 @@
 // @lc code=start
 import java.util.Stack;
 
-class Solution {
+class IsValid {
   public boolean isValid(String s) {
     Stack<Character> stack = new Stack<>();
     for (char currentChar : s.toCharArray()) {
